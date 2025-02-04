@@ -8,17 +8,6 @@ const NavbarHome: React.FC = () => {
       <a href="/" className="navbar-home-logo">
         resumAI.
       </a>
-      <div className="navbar-home-readme">
-        <a
-          href="https://github.com/jo52775/Resume-Builder"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="navbar-home-readme-link"
-        >
-          <i className="fab fa-github navbar-home-readme-icon"></i>
-          <span>readme</span>
-        </a>
-      </div>
     </nav>
   );
 };

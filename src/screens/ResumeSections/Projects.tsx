@@ -30,17 +30,20 @@ const Projects: FC<ProjectsProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:5000/generate-project", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          projectType: formData.projectType,
-          name: formData.name,
-          description: formData.description,
-          startDate: formData.startDate,
-          endDate: formData.endDate,
-        }),
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/generate-project",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            projectType: formData.projectType,
+            name: formData.name,
+            description: formData.description,
+            startDate: formData.startDate,
+            endDate: formData.endDate,
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to generate content");
 

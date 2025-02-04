@@ -28,7 +28,7 @@ const Navbar: FC = () => {
       },
     };
 
-    fetch("http://localhost:5000/logout", options)
+    fetch("https://resumai-server.onrender.com/logout", options)
       .then((response) => response.json())
       .then((data) => {
         if (data.message === "logout successful") {
@@ -43,9 +43,12 @@ const Navbar: FC = () => {
   // Profile information request
   const displayProfile = async () => {
     try {
-      const response = await fetch("http://localhost:5000/user-profile", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/user-profile",
+        {
+          credentials: "include",
+        }
+      );
 
       if (!response.ok) {
         console.log("Failed to display profile.");
@@ -71,14 +74,17 @@ const Navbar: FC = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/change-password", {
-        credentials: "include",
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(passwordCredentials),
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/change-password",
+        {
+          credentials: "include",
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(passwordCredentials),
+        }
+      );
 
       if (!response.ok) {
         console.log("Failed to send password change request");
@@ -187,10 +193,7 @@ const Navbar: FC = () => {
                   />
                   <br />
                   <br />
-                  <button
-                    className="popup-button"
-                    type="submit"
-                  >
+                  <button className="popup-button" type="submit">
                     Submit
                   </button>
                 </form>

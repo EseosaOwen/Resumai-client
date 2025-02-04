@@ -11,9 +11,12 @@ const Dashboard: FC = () => {
 
   const fetchSavedResumes = async () => {
     try {
-      const response = await fetch("http://localhost:5000/get-resumes", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/get-resumes",
+        {
+          credentials: "include",
+        }
+      );
 
       if (!response.ok) {
         console.log("Failed to fetch resume data.");

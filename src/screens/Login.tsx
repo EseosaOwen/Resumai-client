@@ -22,7 +22,7 @@ const Login: FC = () => {
       body: JSON.stringify(loginCredentials),
     };
 
-    fetch("http://localhost:5000/login", options)
+    fetch("https://resumai-server.onrender.com/login", options)
       .then((response) => response.json())
       .then((data) => {
         console.log("Data", data);

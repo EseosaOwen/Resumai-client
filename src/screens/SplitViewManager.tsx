@@ -27,9 +27,12 @@ const SplitViewManager: FC = () => {
   // Authentication
   const verifyAuthToken = async () => {
     try {
-      const response = await fetch("http://localhost:5000/verify", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/verify",
+        {
+          credentials: "include",
+        }
+      );
 
       if (!response.ok) {
         navigate("/login");
@@ -213,7 +216,10 @@ const SplitViewManager: FC = () => {
               skillsFormData={skillsFormData}
               documentTitle={documentTitle}
             />
-            <DownloadHelper containerID="resume-preview-id" fileName={documentTitle}/>
+            <DownloadHelper
+              containerID="resume-preview-id"
+              fileName={documentTitle}
+            />
           </div>
           <div id="resume-preview-id" className="resume-preview-container">
             <div className="right-side-scroll">

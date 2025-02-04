@@ -61,16 +61,19 @@ const ResumeCard: FC<ResumeCardProps> = ({ resumeData }) => {
 
   const deleteResume = async () => {
     try {
-      const response = await fetch("http://localhost:5000/delete-resume", {
-        method: "DELETE",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          delete_id,
-        }),
-      });
+      const response = await fetch(
+        "https://resumai-server.onrender.com/delete-resume",
+        {
+          method: "DELETE",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            delete_id,
+          }),
+        }
+      );
 
       if (!response.ok) {
         console.log("Failed to delete resume.");
@@ -96,7 +99,7 @@ const ResumeCard: FC<ResumeCardProps> = ({ resumeData }) => {
           <h2 className="card-title">{resumeData.documentTitle}</h2>
 
           <div className="button-container">
-            <DownloadHelper containerID={resume_id} fileName={fileName}/>
+            <DownloadHelper containerID={resume_id} fileName={fileName} />
             <button className="delete-resume-button" onClick={deleteResume}>
               <i className="fas fa-trash"></i> Delete
             </button>
